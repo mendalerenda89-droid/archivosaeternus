@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANNUS ARGENTEUS — Arde Lucus XXV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:     #D4AF37;
+      --gold-dim: #8a7020;
+      --red:      #8B0000;
+      --green:    #2d6e2d;
+      --bg:       #05080f;
+      --card-bg:  rgba(10,14,24,0.92);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,55,0.07) 0%, transparent 70%),
+        url('https://i.postimg.cc/NFw4qSWr/unnamed.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      font-family: 'EB Garamond', Georgia, serif;
+      color: #c8d8ee;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── overlay escuro sobre a imaxe ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(5,8,15,0.82) 0%,
+        rgba(5,8,15,0.70) 40%,
+        rgba(5,8,15,0.88) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── watermark ── */
+    body::after {
+      content: 'XXV';
+      position: fixed;
+      bottom: -30px; right: -20px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 280px;
+      color: rgba(212,175,55,0.035);
+      pointer-events: none;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── CABECEIRA ── */
+    header {
+      text-align: center;
+      margin-bottom: 54px;
+      animation: fadeDown 0.9s ease both;
+    }
+
+    .escudo {
+      font-size: 56px;
+      line-height: 1;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 18px rgba(212,175,55,0.5));
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { filter: drop-shadow(0 0 14px rgba(212,175,55,0.45)); }
+      50%      { filter: drop-shadow(0 0 28px rgba(212,175,55,0.75)); }
+    }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.5em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.6rem, 5vw, 2.9rem);
+      color: var(--gold);
+      line-height: 1.15;
+      text-shadow: 0 0 40px rgba(212,175,55,0.35);
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem, 2vw, 0.85rem);
+      letter-spacing: 0.3em;
+      color: #3a6a9a;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 480px;
+      margin: 0 auto 10px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,175,55,0.4), transparent);
+    }
+    .divider-gem { color: var(--gold); font-size: 14px; }
+
+    .tagline {
+      font-style: italic;
+      color: #7a9aba;
+      font-size: 1.05rem;
+      margin-top: 16px;
+    }
+
+    /* ── SECCIONES ── */
+    section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.5em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(212,175,55,0.2);
+    }
+
+    /* ── GRID DE TARXETAS ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-top: 2px solid transparent;
+      border-radius: 8px;
+      padding: 24px 22px 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(212,175,55,0.04));
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px rgba(212,175,55,0.08);
+    }
+
+    /* variantes de cor por tipo */
+    .card.gold   { border-top-color: var(--gold); }
+    .card.red    { border-top-color: #c0392b; }
+    .card.green  { border-top-color: #2d8a2d; }
+    .card.blue   { border-top-color: #2a6496; }
+
+    .card:hover.gold  { border-color: rgba(212,175,55,0.5); }
+    .card:hover.red   { border-color: rgba(192,57,43,0.5);  }
+    .card:hover.green { border-color: rgba(45,138,45,0.5);  }
+    .card:hover.blue  { border-color: rgba(42,100,150,0.5); }
+
+    .card-icon {
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .card.red   .card-title { color: #e87060; }
+    .card.green .card-title { color: #6aba6a; }
+    .card.blue  .card-title { color: #6aaad8; }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: #8aa0b8;
+      line-height: 1.5;
+    }
+
+    .card-badge {
+      display: inline-block;
+      margin-top: 4px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(212,175,55,0.1);
+      color: var(--gold-dim);
+      border: 1px solid rgba(212,175,55,0.2);
+      align-self: flex-start;
+    }
+    .card.red   .card-badge { background: rgba(192,57,43,0.12); color: #c0704a; border-color: rgba(192,57,43,0.25); }
+    .card.green .card-badge { background: rgba(45,138,45,0.12); color: #5aaa5a; border-color: rgba(45,138,45,0.25); }
+    .card.blue  .card-badge { background: rgba(42,100,150,0.12); color: #5a9ac8; border-color: rgba(42,100,150,0.25); }
+
+    /* tarxeta grande (ancho completo) */
+    .card.wide {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+    .card.wide .card-icon { font-size: 36px; flex-shrink: 0; }
+    .card.wide .card-body { flex: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.4em;
+      color: #2a4a6a;
+      text-transform: uppercase;
+    }
+
+    /* ── ANIMACIÓNS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* stagger das tarxetas */
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+
+    @media (max-width: 520px) {
+      .card.wide { flex-direction: column; }
+      .page { padding: 40px 16px 60px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── CABECEIRA ── -->
+  <header>
+    <div class="escudo">🏛️</div>
+    <p class="eyebrow">Arde Lucus · XXV Aniversario · MMXXVI</p>
+    <h1>Annus Argenteus</h1>
+    <p class="subtitle">Una ciudad · Una historia · Dos linajes</p>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-gem">✦</div>
+      <div class="divider-line"></div>
+    </div>
+    <p class="tagline">Escape room urbano · 15–17 de junio de 2026 · Lugo</p>
+  </header>
+
+  <!-- ── INSCRICIÓNS ── -->
+  <section>
+    <div class="section-label">Inscripción de equipos</div>
+    <div class="grid">
+
+      <a href="formulario_escaperoom_mananas.html" class="card gold">
+        <div class="card-icon">☀️</div>
+        <div class="card-title">Turno de Mañana</div>
+        <p class="card-desc">Reserva tu hora entre las 10:00 y las 13:00 h. Plazas limitadas por franja.</p>
+        <span class="card-badge">10:00 – 13:00 h</span>
+      </a>
+
+      <a href="formulario_escaperoom_tardes.html" class="card gold">
+        <div class="card-icon">🌅</div>
+        <div class="card-title">Turno de Tarde</div>
+        <p class="card-desc">Reserva tu hora entre las 16:30 y las 18:30 h. Plazas limitadas por franja.</p>
+        <span class="card-badge">16:30 – 18:30 h</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── LORE DOS LINAXES ── -->
+  <section>
+    <div class="section-label">Historia de los linajes</div>
+    <div class="grid">
+
+      <a href="historia_romana_annus_argenteus.html" class="card red">
+        <div class="card-icon">🦅</div>
+        <div class="card-title">Linaje Romano</div>
+        <p class="card-desc">Guardianes de la muralla. Roma os confía sus calles esta noche.</p>
+        <span class="card-badge">Roma Non Cadet</span>
+      </a>
+
+      <a href="historia_castrexa_annus_argenteus.html" class="card green">
+        <div class="card-icon">🌿</div>
+        <div class="card-title">Linaje Castrexo</div>
+        <p class="card-desc">Hijos del castro. Conocéis los atajos que no figuran en ningún mapa romano.</p>
+        <span class="card-badge">O Pobo Non Esquece</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── PANEIS DE CONTROL ── -->
+  <section>
+    <div class="section-label">Paneles de control · Acceso restringido</div>
+    <div class="grid">
+
+      <a href="annusargenteusmaestro.html" class="card blue wide">
+        <div class="card-icon">⚙️</div>
+        <div class="card-body">
+          <div class="card-title">Panel Maestro</div>
+          <p class="card-desc">Control centralizado del juego: estado de campamentos, progreso de equipos y gestión de partidas en tiempo real.</p>
+          <span class="card-badge">Solo organizadores</span>
+        </div>
+      </a>
+
+      <a href="Annus_Argenteuss-campamento.html" class="card blue">
+        <div class="card-icon">🏕️</div>
+        <div class="card-title">Panel de Campamento</div>
+        <p class="card-desc">Vista individual de cada campamento para los monitores de prueba.</p>
+        <span class="card-badge">Monitor</span>
+      </a>
+
+      <a href="gestordereservas2.html" class="card blue">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Gestor de Reservas</div>
+        <p class="card-desc">Visualiza y administra todas las inscripciones registradas en Firestore.</p>
+        <span class="card-badge">Admin</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── PORTAL DE JUGADORES ── -->
+  <section>
+    <div class="section-label">Portal de jugadores</div>
+    <div class="grid">
+
+      <a href="paginaweb2idiomas.html" class="card gold wide">
+        <div class="card-icon">🌐</div>
+        <div class="card-body">
+          <div class="card-title">Portal Principal · Cas / Gal</div>
+          <p class="card-desc">Página de bienvenida bilingüe (castellano y galego) con la información general del escape room para los participantes.</p>
+          <span class="card-badge">Público</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Annus Argenteus · Arde Lucus XXV · © 2026 Yelco Zarza Arias · Prop. Int. expediente 00765-03117770</p>
+  </footer>
+
+</div>
+</body>
+</html>
