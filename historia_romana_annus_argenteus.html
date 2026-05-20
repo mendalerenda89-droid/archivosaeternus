@@ -1,0 +1,98 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+
+  .carta {
+    background: linear-gradient(160deg,#0a1828 0%,#0d2040 60%,#0a1828 100%);
+    border: 1px solid #2a4a70;
+    border-top: 3px solid #c8960c;
+    border-radius: 4px;
+    padding: 36px 40px 32px;
+    max-width: 680px;
+    margin: 8px auto;
+    position: relative;
+    font-family: 'EB Garamond', Georgia, serif;
+    overflow: hidden;
+  }
+  .carta::before {
+    content: 'SPQR';
+    position: absolute;
+    bottom: 12px; right: 20px;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 52px;
+    color: #1a3560;
+    opacity: .55;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .linaje {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: .45em;
+    color: #5a8fc0;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .titulo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 22px;
+    color: #f0c040;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    text-shadow: 0 0 24px rgba(240,192,64,.3);
+  }
+  .subtitulo {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: .3em;
+    color: #3a6a9a;
+    margin-bottom: 22px;
+  }
+  .divisor {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
+  }
+  .divisor-linea { flex:1; height:1px; background: linear-gradient(to right, transparent, #c8960c44, transparent); }
+  .divisor-icono { font-size: 13px; color: #c8960c; }
+  .historia {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #ccdaee;
+    text-align: justify;
+  }
+  .historia p { margin-bottom: 14px; }
+  .historia p:last-child { margin-bottom: 0; }
+  .highlight { color: #f0c040; font-style: italic; }
+  .cierre {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #1e3a60;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: #4a7aaa;
+    letter-spacing: .15em;
+    text-align: center;
+    font-style: normal;
+  }
+  .icono-top {
+    font-size: 28px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 6px rgba(200,150,12,.5));
+  }
+</style>
+<div class="carta">
+  <div class="icono-top">🦅</div>
+  <div class="linaje">⚔ Linaje Romano · Annus Argenteus · MMXXVI ⚔</div>
+  <div class="titulo">Roma Non Cadet</div>
+  <div class="subtitulo">La ciudad que no puede arder</div>
+  <div class="divisor">
+    <div class="divisor-linea"></div>
+    <div class="divisor-icono">✦</div>
+    <div class="divisor-linea"></div>
+  </div>
+  <div class="historia">
+    <p>Esta mañana encontraron un hombre muerto en los escalones del Templo de Marte. En su mano, un trozo de papiro con una sola advertencia: <span class="highlight">"Viene hoy con la caravana. Lleva fuego escondido bajo el grano. Si cruza la muralla, Lucus arderá esta noche."</span></p>
+    <p>El festival ha comenzado. Las puertas están abiertas. En algún lugar entre esa multitud hay un mercader con otro nombre, otra cara y odres de aceite de cedro ocultos entre sus mercancías.</p>
+    <p>No podéis cerrar la ciudad. No podéis sembrar el pánico. Tenéis que encontrarlo antes de que anochezca... y hacerlo en silencio.</p>
+  </div>
+  <div class="cierre">Roma os confía sus calles. No falléis.</div>
+</div>

@@ -1,0 +1,97 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+
+  .carta-c {
+    background: linear-gradient(160deg,#110800 0%,#1e0e00 60%,#110800 100%);
+    border: 1px solid #5a3010;
+    border-top: 3px solid #c47a20;
+    border-radius: 4px;
+    padding: 36px 40px 32px;
+    max-width: 680px;
+    margin: 8px auto;
+    position: relative;
+    font-family: 'EB Garamond', Georgia, serif;
+    overflow: hidden;
+  }
+  .carta-c::before {
+    content: '☽';
+    position: absolute;
+    bottom: 4px; right: 24px;
+    font-size: 72px;
+    color: #2a1500;
+    opacity: .7;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .linaje-c {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: .42em;
+    color: #a06030;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .titulo-c {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 22px;
+    color: #f0a828;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    text-shadow: 0 0 24px rgba(200,120,10,.35);
+  }
+  .subtitulo-c {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: .28em;
+    color: #6a3a18;
+    margin-bottom: 22px;
+  }
+  .divisor-c {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
+  }
+  .divisor-linea-c { flex:1; height:1px; background: linear-gradient(to right, transparent, #c47a2044, transparent); }
+  .divisor-icono-c { font-size: 13px; color: #c47a20; }
+  .historia-c {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #d4bfa0;
+    text-align: justify;
+  }
+  .historia-c p { margin-bottom: 14px; }
+  .historia-c p:last-child { margin-bottom: 0; }
+  .highlight-c { color: #f0a828; font-style: italic; }
+  .cierre-c {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #2e1500;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: #7a4a20;
+    letter-spacing: .15em;
+    text-align: center;
+    font-style: normal;
+  }
+  .icono-top-c {
+    font-size: 28px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 6px rgba(196,120,32,.5));
+  }
+</style>
+<div class="carta-c">
+  <div class="icono-top-c">🌙</div>
+  <div class="linaje-c">☽ Linaje Castrexo · Annus Argenteus · MMXXVI ☽</div>
+  <div class="titulo-c">O Pobo Non Esquece</div>
+  <div class="subtitulo-c">La memoria del castro, la velocidad del viento</div>
+  <div class="divisor-c">
+    <div class="divisor-linea-c"></div>
+    <div class="divisor-icono-c">✦</div>
+    <div class="divisor-linea-c"></div>
+  </div>
+  <div class="historia-c">
+    <p>La druída os despertó antes de que saliera el sol. Había un pájaro muerto en el umbral y olor a aceite de cedro en el viento del norte. Alguien pasó por el camino del castro durante la noche sin pedir hospitalidad, sin detenerse. Solo dejó <span class="highlight-c">una marca en la piedra y siguió hacia Lucus.</span></p>
+    <p>Ese hombre quiere quemar la ciudad durante el festival. Ya lleva horas de ventaja.</p>
+    <p>Conocéis el territorio mejor que nadie. Conocéis los atajos que no figuran en ningún mapa romano. Si superáis las pruebas del camino, podéis llegar antes que él.</p>
+  </div>
+  <div class="cierre-c">A terra os coñece. Correde.</div>
+</div>
